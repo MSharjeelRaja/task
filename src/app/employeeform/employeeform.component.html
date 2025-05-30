@@ -1,0 +1,81 @@
+<div class="body">
+  <h3>Employee Form</h3>
+  <form
+    [formGroup]="form"
+    (ngSubmit)="onSubmit()"
+    class="material-form"
+    novalidate
+
+  >
+    <mat-form-field   appearance="fill" class="field">
+      <mat-label>Input</mat-label>
+      <input class="ff" matInput formControlName="name" required />
+      <mat-error *ngIf="form.get('name')?.invalid && form.get('name')?.touched">
+        Name is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="field">
+      <mat-label>Select</mat-label>
+      <mat-select formControlName="select" required>
+        <mat-option value="Designer">Designer</mat-option>
+        <mat-option value="FrontEnd">FrontEnd</mat-option>
+      </mat-select>
+      <mat-error
+        *ngIf="form.get('select')?.invalid && form.get('select')?.touched"
+      >
+        Selection is required
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="field">
+      <mat-label>Phone number</mat-label>
+      <input
+        type="number"
+        matInput
+        formControlName="tel"
+        required
+        maxlength="10"
+      />
+      <mat-hint> Phone Number Must be exactly 10 digits</mat-hint>
+      <mat-error
+        *ngIf="
+          form.get('tel')?.hasError('required') && form.get('tel')?.touched
+        "
+      >
+        Phone number is required
+      </mat-error>
+      <mat-error *ngIf="form.get('tel')?.hasError('minlength')">
+        Phone Number Must be exactly 10 digits
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="field">
+      <mat-label>Enter your email</mat-label>
+
+      <input
+        matInput
+        placeholder="pat@example.com"
+        formControlName="email"
+        required
+      />
+      <mat-hint>Format :&#64;yahoo| &#64;outlook |&#64;gmail.com</mat-hint>
+      <mat-error
+        *ngIf="form.get('email')?.invalid && form.get('email')?.touched"
+      >
+        {{ errorMessage() }}
+      </mat-error>
+      <mat-error class="error" *ngIf="form.get('email')?.hasError('email')">
+        Format &#64;gmail.com
+      </mat-error>
+    </mat-form-field>
+
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="form.invalid"
+    >
+      Submit
+    </button>
+  </form>
+</div>

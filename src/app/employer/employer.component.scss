@@ -1,0 +1,47 @@
+.demo-table {
+  width: 800px;
+
+}
+.d {
+  border-radius: 10px;
+  overflow: hidden;
+}
+h4{
+  color: rgb(252, 252, 252);
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+}
+.btn button{
+   background-color: rgb(0, 118, 177);
+        padding: 5px 20px;
+        border-radius: 5px;
+        font-size: 16px;
+        width: 150px;
+        margin-top: 10px;
+        color: white;
+        font-weight: bold;
+        border: none;
+        &:hover{
+          cursor: pointer;
+          background-color: white;
+          color: rgb(0, 187, 255);
+transition: 0.6s ease-in-out;
+        }
+}
+.head{
+text-align: center;
+
+}
+
+.data{
+  text-align: center;
+  font-weight: 400;
+}
+.name{
+  font-weight: 500;
+}
+.mat-mdc-header-row{
+  background-color: rgb(213, 213, 213);
+
+}

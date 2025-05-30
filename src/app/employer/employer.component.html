@@ -1,0 +1,59 @@
+<div class="main">
+  <h4>Company Details</h4>
+  <table
+    mat-table
+    [dataSource]="dataSource"
+    class="mat-elevation-z8 demo-table d"
+  >
+    <ng-container  matColumnDef="name">
+      <th mat-header-cell class="head" *matHeaderCellDef>Company Name</th>
+      <td mat-cell class="data name" *matCellDef="let element">{{ element.name }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="tel">
+      <th mat-header-cell class="head" *matHeaderCellDef>Phone Number</th>
+      <td mat-cell class="data" *matCellDef="let element">{{ element.tel }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <th mat-header-cell class="head"  *matHeaderCellDef>Email Address</th>
+      <td mat-cell class="data" *matCellDef="let element">{{ element.email }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="select">
+      <th mat-header-cell class="head" *matHeaderCellDef>Department</th>
+      <td mat-cell *matCellDef="let element" class="data">{{ element.select }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Actions">
+      <th mat-header-cell class="head" *matHeaderCellDef>Actions</th>
+      <td mat-cell class="data" *matCellDef="let element">
+        <button
+          mat-button
+          style="color: rgb(0, 0, 0)"
+          (click)="editemployer(element.id)"
+        >
+          Edit
+        </button>
+        <button
+          mat-button
+          style="color: rgb(255, 1, 1)"
+          (click)="deleteemployer(element)"
+        >
+          Delete
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+  <div class="btn" style="display: flex; justify-content: center; align-items: center">
+    <button
+
+      routerLink="/EmployerForm"
+    >
+      Add
+    </button>
+  </div>
+</div>
