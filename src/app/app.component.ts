@@ -19,7 +19,9 @@ import { Router, RouterLink, RouterOutlet } from '@angular/router';
     MatButtonModule,
     RouterOutlet,
   ],
+
   templateUrl: './app.component.html',
+  standalone:true,
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
